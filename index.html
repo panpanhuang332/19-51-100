@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌏 國際貿易大冒險 Vol.2 — Q51-100 圖解教學</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber:  #f59e0b;
+    --orange: #ea580c;
+    --rose:   #e11d48;
+    --teal:   #0d9488;
+    --indigo: #4f46e5;
+    --ink:    #1c1917;
+    --cloud:  #fffbeb;
+    --sand:   #fef3c7;
+    --mint:   #ccfbf1;
+    --lavender:#ede9fe;
+    --blush:  #ffe4e6;
+    --ocean:  #e0f2fe;
+    --radius: 18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Sans TC',sans-serif;background:#fffbeb;color:var(--ink);overflow-x:hidden;}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#92400e 0%,#b45309 30%,#d97706 60%,#fbbf24 100%);padding:60px 20px 90px;text-align:center;position:relative;overflow:hidden;}
+  .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:#fffbeb;clip-path:ellipse(55% 100% at 50% 100%);}
+  .hero-badge{display:inline-block;background:rgba(255,255,255,0.2);border:2px solid rgba(255,255,255,0.5);border-radius:999px;padding:6px 20px;font-size:13px;color:#fff;letter-spacing:2px;font-weight:700;margin-bottom:20px;text-transform:uppercase;}
+  .hero h1{font-family:'Fredoka One','Noto Sans TC',sans-serif;font-size:clamp(30px,6vw,62px);color:#fff;text-shadow:0 4px 20px rgba(0,0,0,0.25);line-height:1.15;margin-bottom:14px;}
+  .hero p{font-size:17px;color:rgba(255,255,255,0.92);max-width:560px;margin:0 auto 30px;line-height:1.7;}
+  .hero-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+  .stat-pill{background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.5);border-radius:999px;padding:10px 22px;color:#fff;font-weight:700;font-size:14px;backdrop-filter:blur(8px);}
+  .stat-pill span{font-size:20px;margin-right:6px;}
+
+  /* TABS */
+  .nav-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:28px 16px 10px;position:sticky;top:0;background:rgba(255,251,235,0.96);backdrop-filter:blur(10px);z-index:100;border-bottom:2px solid #fde68a;}
+  .tab-btn{padding:8px 16px;border-radius:999px;border:2px solid #fde68a;background:#fff;color:#92400e;font-family:'Noto Sans TC',sans-serif;font-weight:700;font-size:12.5px;cursor:pointer;transition:all 0.2s;}
+  .tab-btn:hover,.tab-btn.active{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-2px);box-shadow:0 4px 14px rgba(234,88,12,0.35);}
+
+  /* CHAPTER */
+  .chapter{max-width:900px;margin:0 auto;padding:40px 20px 0;}
+  .chapter-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding:20px 26px;border-radius:var(--radius);color:#fff;box-shadow:0 6px 24px rgba(0,0,0,0.15);}
+  .chapter-icon{font-size:42px;flex-shrink:0;}
+  .chapter-header h2{font-family:'Fredoka One',sans-serif;font-size:24px;line-height:1.2;}
+  .chapter-header p{font-size:13.5px;opacity:0.9;margin-top:4px;}
+  .ch6{background:linear-gradient(135deg,#0d9488,#2dd4bf);}
+  .ch7{background:linear-gradient(135deg,#4f46e5,#818cf8);}
+  .ch8{background:linear-gradient(135deg,#e11d48,#fb7185);}
+  .ch9{background:linear-gradient(135deg,#92400e,#d97706);}
+  .ch10{background:linear-gradient(135deg,#065f46,#10b981);}
+
+  /* CARDS */
+  .card-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:48px;}
+  .q-card{background:#fff;border-radius:var(--radius);padding:24px 26px;border:2px solid #fde68a;box-shadow:0 2px 12px rgba(0,0,0,0.06);transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;opacity:0;transform:translateY(20px);}
+  .q-card.visible{opacity:1;transform:translateY(0);transition:opacity 0.4s ease,transform 0.4s ease;}
+  .q-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(234,88,12,0.15);border-color:var(--amber);}
+  .q-card::before{content:'';position:absolute;top:0;left:0;width:5px;height:100%;border-radius:5px 0 0 5px;}
+  .q-card.c-teal::before{background:var(--teal);}
+  .q-card.c-indigo::before{background:var(--indigo);}
+  .q-card.c-rose::before{background:var(--rose);}
+  .q-card.c-amber::before{background:var(--amber);}
+  .q-card.c-orange::before{background:var(--orange);}
+
+  .q-num{font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px;}
+  .c-teal .q-num{background:#ccfbf1;color:var(--teal);}
+  .c-indigo .q-num{background:#e0e7ff;color:var(--indigo);}
+  .c-rose .q-num{background:#ffe4e6;color:var(--rose);}
+  .c-amber .q-num{background:#fef3c7;color:#b45309;}
+  .c-orange .q-num{background:#ffedd5;color:var(--orange);}
+
+  .q-title{font-size:17px;font-weight:900;line-height:1.5;margin-bottom:10px;}
+  .q-concept{font-size:14px;background:#f8fafc;border-radius:10px;padding:12px 16px;line-height:1.9;color:#334155;margin-bottom:12px;border-left:3px solid #cbd5e1;}
+  .analogy{background:var(--sand);border-radius:12px;padding:12px 16px;font-size:13.5px;line-height:1.8;color:#78350f;margin-bottom:12px;}
+  .analogy::before{content:'💡 白話說：';font-weight:900;display:block;margin-bottom:4px;}
+  .options{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+  @media(max-width:520px){.options{grid-template-columns:1fr;}}
+  .opt{padding:8px 14px;border-radius:8px;border:1.5px solid #e2e8f0;font-size:13px;background:#fff;color:var(--ink);}
+  .opt.correct{background:#d1fae5;border-color:#6ee7b7;font-weight:700;color:#065f46;}
+  .opt.correct::after{content:' ✓';color:#059669;font-weight:900;}
+  .key-concept{display:inline-flex;align-items:center;gap:6px;background:#ffedd5;color:#9a3412;border-radius:8px;padding:5px 12px;font-size:12.5px;font-weight:700;margin-bottom:10px;}
+
+  /* HIGHLIGHTS */
+  .hl-r{background:#fee2e2;color:#be123c;border-radius:4px;padding:1px 5px;font-weight:700;}
+  .hl-g{background:#d1fae5;color:#065f46;border-radius:4px;padding:1px 5px;font-weight:700;}
+  .hl-b{background:#dbeafe;color:#1e40af;border-radius:4px;padding:1px 5px;font-weight:700;}
+  .hl-y{background:#fef9c3;color:#713f12;border-radius:4px;padding:1px 5px;font-weight:700;}
+  .hl-p{background:#ede9fe;color:#5b21b6;border-radius:4px;padding:1px 5px;font-weight:700;}
+  .hl-o{background:#ffedd5;color:#9a3412;border-radius:4px;padding:1px 5px;font-weight:700;}
+
+  /* TABLE */
+  .mini-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0;}
+  .mini-table th{background:#ea580c;color:#fff;padding:7px 10px;text-align:left;}
+  .mini-table td{padding:6px 10px;border-bottom:1px solid #fde68a;}
+  .mini-table tr:nth-child(even) td{background:#fffbeb;}
+
+  /* CALC BOX */
+  .calc-box{background:#1e293b;color:#e2e8f0;border-radius:12px;padding:16px 18px;font-size:13px;line-height:2;font-family:'Courier New',monospace;margin:12px 0;white-space:pre-wrap;}
+  .calc-box .step{color:#fbbf24;font-weight:700;}
+  .calc-box .ans{color:#34d399;font-weight:900;font-size:15px;}
+
+  /* ENGLISH CARD */
+  .eng-card{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:2px solid #bae6fd;border-radius:12px;padding:14px 18px;margin-bottom:12px;font-size:15px;line-height:1.9;color:#0c4a6e;}
+  .eng-blank{display:inline-block;background:#fef9c3;border-bottom:3px solid #f59e0b;padding:0 16px;border-radius:4px;font-weight:700;color:#78350f;min-width:60px;text-align:center;}
+
+  /* LC BADGE */
+  .lc-field{display:inline-block;background:#ede9fe;color:#5b21b6;border-radius:6px;padding:2px 10px;font-size:12px;font-weight:700;margin:2px;}
+
+  /* SECTION TOGGLE */
+  .section-content{display:none;}
+  .section-content.active{display:block;}
+
+  /* QUIZ */
+  #quiz-section{max-width:900px;margin:0 auto;padding:40px 20px 80px;}
+  .quiz-header{text-align:center;margin-bottom:32px;}
+  .quiz-header h2{font-family:'Fredoka One',sans-serif;font-size:36px;color:var(--orange);margin-bottom:8px;}
+  .quiz-header p{color:#78716c;font-size:15px;}
+  .progress-bar-wrap{background:#fde68a;border-radius:999px;height:8px;margin:10px 0 24px;}
+  .progress-bar{background:linear-gradient(90deg,var(--orange),var(--teal));height:100%;border-radius:999px;transition:width 0.4s ease;}
+  .quiz-card{background:#fff;border-radius:var(--radius);padding:26px 28px;border:2px solid #fde68a;margin-bottom:20px;box-shadow:0 3px 14px rgba(0,0,0,0.06);}
+  .quiz-q{font-size:16px;font-weight:700;line-height:1.6;margin-bottom:16px;}
+  .quiz-q span{display:inline-block;width:28px;height:28px;background:var(--orange);color:#fff;border-radius:50%;text-align:center;line-height:28px;font-size:13px;font-weight:900;margin-right:8px;}
+  .quiz-opts{display:grid;gap:10px;}
+  .quiz-opt{padding:11px 18px;border-radius:10px;border:2px solid #e2e8f0;cursor:pointer;font-family:'Noto Sans TC',sans-serif;font-size:14px;background:#fff;text-align:left;transition:all 0.15s;color:var(--ink);font-weight:500;}
+  .quiz-opt:hover:not(:disabled){border-color:var(--amber);background:#fffbeb;}
+  .quiz-opt.selected-correct{background:#d1fae5;border-color:#34d399;color:#064e3b;font-weight:700;}
+  .quiz-opt.selected-wrong{background:#fee2e2;border-color:#f87171;color:#7f1d1d;font-weight:700;}
+  .quiz-opt.reveal-correct{background:#d1fae5;border-color:#34d399;color:#064e3b;}
+  .quiz-opt:disabled{cursor:default;}
+  .quiz-feedback{display:none;margin-top:12px;padding:12px 16px;border-radius:10px;font-size:14px;line-height:1.7;font-weight:500;}
+  .quiz-feedback.show{display:block;}
+  .correct-fb{background:#d1fae5;color:#065f46;border:1.5px solid #6ee7b7;}
+  .wrong-fb{background:#fee2e2;color:#7f1d1d;border:1.5px solid #fca5a5;}
+  .score-board{background:linear-gradient(135deg,var(--orange),#92400e);border-radius:var(--radius);padding:36px;text-align:center;color:#fff;margin-top:32px;display:none;}
+  .score-board h3{font-family:'Fredoka One',sans-serif;font-size:30px;margin-bottom:10px;}
+  .score-big{font-family:'Fredoka One',sans-serif;font-size:72px;line-height:1;text-shadow:0 4px 20px rgba(0,0,0,0.2);}
+  .restart-btn{margin-top:24px;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.6);border-radius:999px;padding:12px 32px;color:#fff;font-family:'Noto Sans TC',sans-serif;font-size:15px;font-weight:700;cursor:pointer;}
+  .restart-btn:hover{background:rgba(255,255,255,0.4);}
+
+  footer{text-align:center;padding:40px 20px;color:#a8a29e;font-size:13px;border-top:1px solid #fde68a;background:#fff;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">第十九屆 國際貿易大會考 Vol.2</div>
+  <h1>🔥 國際貿易<br>大冒險 後半段</h1>
+  <p>Q51–Q100 精解！保險理賠、信用狀實務、計算題、英文選填、國際時事，全部搞定。</p>
+  <div class="hero-stats">
+    <div class="stat-pill"><span>📚</span>5 大章節</div>
+    <div class="stat-pill"><span>💡</span>50 題精解</div>
+    <div class="stat-pill"><span>🧮</span>計算題解析</div>
+    <div class="stat-pill"><span>🎯</span>隨堂測驗</div>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs" id="navTabs">
+  <button class="tab-btn active" onclick="showSection('ch6')">✈️ 第六章：運輸單據</button>
+  <button class="tab-btn" onclick="showSection('ch7')">🛡️ 第七章：海上保險</button>
+  <button class="tab-btn" onclick="showSection('ch8')">🏦 第八章：L/C進階</button>
+  <button class="tab-btn" onclick="showSection('ch9')">🧮 第九章：計算題</button>
+  <button class="tab-btn" onclick="showSection('ch10')">🌐 第十章：時事+英文+實務</button>
+  <button class="tab-btn" onclick="showSection('quiz')">🎯 隨堂測驗</button>
+</div>
+
+<!-- ═══════════ CH6：運輸單據深入 ═══════════ -->
+<div id="ch6" class="section-content active">
+<div class="chapter">
+  <div class="chapter-header ch6">
+    <div class="chapter-icon">✈️</div>
+    <div>
+      <h2>第六章：運輸單據深入解析</h2>
+      <p>Q51–Q55 ｜ 空運提單、電放、HAWB、複合運送、B/L條款</p>
+    </div>
+  </div>
+  <div class="card-grid">
+
+    <!-- Q51 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 51</div>
+      <div class="key-concept">✈️ 空運提單 (Air Waybill)</div>
+      <div class="q-title">關於空運提單(air waybill)，哪個說法正確？</div>
+      <div class="q-concept">
+        空運提單(AWB)跟海運提單(B/L)最大的差別：<br>
+        🔵 AWB <span class="hl-r">不是物權憑證</span>，不能背書轉讓<br>
+        🔵 AWB 的受貨人（consignee）欄位以<span class="hl-g">記名式</span>記載（寫清楚誰來拿貨）<br>
+        🔵 AWB 可以由航空公司或<span class="hl-b">航空貨運承攬業者</span>簽發<br>
+        🔵 正本三聯，但不需要全套提示（不像B/L）
+      </div>
+      <div class="analogy">空運提單比較像「快遞取件單」——快遞員知道要送給誰（記名式），不能中途轉給別人拿，也不代表所有權。海運B/L才是「所有權狀」。</div>
+      <div class="options">
+        <div class="opt">(A) 須由航空公司簽發（也可由承攬業者發）</div>
+        <div class="opt">(B) 為物權憑證，可背書轉讓（錯，AWB不是物權憑證）</div>
+        <div class="opt correct">(C) consignee 欄位以記名式記載 ← 答案</div>
+        <div class="opt">(D) 正本三聯，若要全套須三聯一起提示（錯，AWB不需要全套）</div>
+      </div>
+    </div>
+
+    <!-- Q52 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 52</div>
+      <div class="key-concept">📧 電放貨物(Email Release)</div>
+      <div class="q-title">出口商申請電放貨物時，需向船公司提供什麼？</div>
+      <div class="q-concept">
+        <b>電放</b>（Telex Release / Email Release / Cable Release）= 不用寄實體提單，改以電子方式通知目的港放貨。<br><br>
+        申請電放的程序：<br>
+        1️⃣ 出口商把正本提單還給船公司<br>
+        2️⃣ 出口商出具<span class="hl-g">切結書（Letter of Indemnity, L/I）</span>，保證不再使用提單提貨<br>
+        3️⃣ 船公司發電報/email 通知目的港代理放貨
+      </div>
+      <div class="analogy">你先買了一張「電影院取票紙本」，但後來說「我要改用手機取票」，電影院要你把紙本還回去，並且簽個聲明「我不會再用這張紙了」。這個聲明就是切結書(L/I)。</div>
+      <div class="options">
+        <div class="opt correct">(A) 切結書(L/I) ← 答案</div>
+        <div class="opt">(B) 裝貨單(S/O)（那是裝船用的）</div>
+        <div class="opt">(C) 銀行保證函(L/G)（銀行擔保，不是這個）</div>
+        <div class="opt">(D) 小提單(D/O)（那是提貨用的）</div>
+      </div>
+    </div>
+
+    <!-- Q53 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 53</div>
+      <div class="key-concept">📋 HAWB vs MAWB</div>
+      <div class="q-title">關於 HAWB（航空分提單），哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        <table class="mini-table">
+          <tr><th>名稱</th><th>全名</th><th>簽發人</th><th>用途</th></tr>
+          <tr><td><span class="hl-g">HAWB</span></td><td>House Air Waybill</td><td>航空貨運承攬業者</td><td>給出口商的收據</td></tr>
+          <tr><td>MAWB</td><td>Master Air Waybill</td><td>航空公司</td><td>承攬業者向航空公司提貨的單據</td></tr>
+        </table>
+        ❌ 選項(B) 說「HAWB 是承攬業者向航空公司辦理提貨的單據」→ 錯！<br>
+        <span class="hl-r">MAWB 才是</span>承攬業者向航空公司的憑證，HAWB 是給貨主（出口商）的。
+      </div>
+      <div class="analogy">想像旅行社（承攬業者）幫你訂機票：你（貨主）拿到的是旅行社給的「行程確認單」（HAWB），旅行社自己向航空公司拿的才是「機票」（MAWB）。</div>
+      <div class="options">
+        <div class="opt">(A) 由航空貨運承攬業者簽發 ✓</div>
+        <div class="opt correct">(B) 是承攬業者向航空公司辦理提貨的單據 ← 答案（有誤，那是MAWB）</div>
+        <div class="opt">(C) 中文稱為航空分提單 ✓</div>
+        <div class="opt">(D) 格式與MAWB類似 ✓</div>
+      </div>
+    </div>
+
+    <!-- Q54 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 54</div>
+      <div class="key-concept">🗺️ 複合運送四個地點的順序</div>
+      <div class="q-title">複合運送的四個貨物移動點，正確順序為？</div>
+      <div class="q-concept">
+        ③ place of receipt（接受地/收貨地）→ ① port of loading（裝貨港）→ ② port of discharge（卸貨港）→ ④ place of delivery（交貨地）<br><br>
+        <b>記憶口訣：「接→裝→卸→交」</b><br>
+        🏭 收貨地：貨物從工廠/倉庫出發<br>
+        🚢 裝貨港：把貨裝上船的港口<br>
+        🛳 卸貨港：把貨卸下的港口<br>
+        🏠 交貨地：最終送達客戶的地點
+      </div>
+      <div class="analogy">寄快遞的流程：你的家（收貨地）→ 快遞集散站（裝貨港）→ 對方城市的集散站（卸貨港）→ 對方的家（交貨地）。這就是複合運送的四個點！</div>
+      <div class="options">
+        <div class="opt">(A) ①②③④（裝卸在收交之前，錯）</div>
+        <div class="opt">(B) ③④①②（中間順序錯）</div>
+        <div class="opt">(C) ④①②③（從交貨地開始，錯）</div>
+        <div class="opt correct">(D) ③①②④ ← 答案（收→裝→卸→交）</div>
+      </div>
+    </div>
+
+    <!-- Q55 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 55</div>
+      <div class="key-concept">📄 提單條款解讀</div>
+      <div class="q-title">信用狀規定「Full set of clean shipped on board B/L made out to our order...」，哪個正確？</div>
+      <div class="q-concept">
+        條款解碼：<br>
+        🔵 <b>Full set</b>：正本提單全套（通常3份），需全部提示<br>
+        🔵 <b>clean</b>：清潔提單（貨物外觀良好，無批注），但不需要提單上印「clean」字樣<br>
+        🔵 <b>shipped on board</b>：已裝船提單<br>
+        🔵 <b>made out to our order</b>：受貨人為「our（開狀銀行）的指示」→ <span class="hl-g">"our" = 開狀銀行</span><br><br>
+        這句話是信用狀在講，"our" 就是發出這句話的主角 = 開狀銀行（UCB）
+      </div>
+      <div class="analogy">信用狀是「開狀銀行發的文件」，裡面說「to our order」就是說「抬頭寫我（開狀銀行）的名字」。</div>
+      <div class="options">
+        <div class="opt">(A) 銀行要求記名式提單（to order是指示式，不是記名式）</div>
+        <div class="opt">(B) 受益人需提示3/3份提單（full set不一定是3/3，視發行份數）</div>
+        <div class="opt">(C) 提單上須有「clean」字樣（不需要，clean是狀態要求）</div>
+        <div class="opt correct">(D) "our" 是指開狀銀行 ← 答案</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ CH7：海上保險 ═══════════ -->
+<div id="ch7" class="section-content">
+<div class="chapter">
+  <div class="chapter-header ch7">
+    <div class="chapter-icon">🛡️</div>
+    <div>
+      <h2>第七章：海上保險精要</h2>
+      <p>Q56–Q60 ｜ ICC條款、共同海損、輸出保險</p>
+    </div>
+  </div>
+  <div class="card-grid">
+
+    <!-- Q56 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 56</div>
+      <div class="key-concept">⏱️ ICC(Air) 保險效力期限</div>
+      <div class="q-title">依 ICC(Air) 09.1.1 規定，空運貨物在目的機場卸貨後超過幾天，保險效力終止？</div>
+      <div class="q-concept">
+        <table class="mini-table">
+          <tr><th>保險條款</th><th>卸貨後天數</th></tr>
+          <tr><td>ICC(A) / (B) / (C) 海運</td><td>目的港卸貨後 60 天</td></tr>
+          <tr><td class="hl-g">ICC(Air) 空運</td><td class="hl-g">目的機場卸貨後 <b>30 天</b></td></tr>
+        </table>
+        空運速度快，所以保險的寬限期也比海運短（30天 vs 60天）。
+      </div>
+      <div class="analogy">海運可能要等很久才去提貨，所以給你60天緩衝；空運本來就快，30天還不去提你在等什麼？</div>
+      <div class="options">
+        <div class="opt correct">(A) 30 日 ← 答案</div>
+        <div class="opt">(B) 60 日（海運才是60日）</div>
+        <div class="opt">(C) 90 日</div>
+        <div class="opt">(D) 120 日</div>
+      </div>
+    </div>
+
+    <!-- Q57 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 57</div>
+      <div class="key-concept">🌊 共同海損（General Average）</div>
+      <div class="q-title">船長將A貨物拋海，使B、C貨物安全到港。哪些人需分擔共同海損？</div>
+      <div class="q-concept">
+        <b>共同海損</b> = 為了救所有人的財產，故意犧牲一部分，大家一起分攤損失。<br><br>
+        分擔原則：<span class="hl-g">所有因此獲救的人</span>（包括貨物和船隻）都需要分攤，<span class="hl-r">被犧牲的那方</span>也要分攤！<br><br>
+        ① A 貨主：雖然貨被拋了，仍需分擔（規則就是這樣）<br>
+        ② B 貨主：貨獲救了，要分擔<br>
+        ③ C 貨主：貨獲救了，要分擔<br>
+        ④ 船東：船獲救了，要分擔<br>
+        ⑤ 運送人：通常等同船東，要分擔
+      </div>
+      <div class="analogy">你跟4個朋友搭船，為了讓船不沉，把其中一個人的行李丟掉了。雖然那個朋友的東西被丟了，但他也因此活了下來，所以5個人一起賠他東西的費用。</div>
+      <div class="options">
+        <div class="opt">(A) ②③④（少了A貨主和運送人）</div>
+        <div class="opt correct">(B) ①②③④⑤ ← 答案（所有人都要分擔）</div>
+        <div class="opt">(C) ②③④⑤（少了A貨主）</div>
+        <div class="opt">(D) ①②③（少了船東和運送人）</div>
+      </div>
+    </div>
+
+    <!-- Q58 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 58</div>
+      <div class="key-concept">📑 輸出保險（Export Insurance）</div>
+      <div class="q-title">關於台灣的輸出保險，哪個說法正確？</div>
+      <div class="q-concept">
+        <b>輸出保險</b>是政策性保險（政府支持），<span class="hl-b">不是</span>一般產物保險。<br>
+        保障的是<span class="hl-g">出口商收不到貨款</span>的風險（商業風險＋政治風險）。<br><br>
+        ✅ (D) <b>進口商違約不付款</b>屬於商業風險，在承保範圍內，但<span class="hl-r">出口商仍需自付一部分（自留額）</span>，不是100%全賠。<br><br>
+        ❌ (A) 輸出保險是政策性保險，<b>不屬於</b>產物保險<br>
+        ❌ (B) 進口商因金融風暴倒閉 → <b>是</b>承保範圍<br>
+        ❌ (C) 保險標的是「貨款收入」不是「貨物」
+      </div>
+      <div class="options">
+        <div class="opt">(A) 既是政策性保險，也屬產物保險（錯，不是產物保險）</div>
+        <div class="opt">(B) 不承保進口商金融風暴倒閉（錯，這在承保範圍）</div>
+        <div class="opt">(C) 保險標的物為輸出貨物（錯，是貨款/收入）</div>
+        <div class="opt correct">(D) 進口商違約不付款屬承保，但出口商需承擔部分風險 ← 答案</div>
+      </div>
+    </div>
+
+    <!-- Q59 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 59</div>
+      <div class="key-concept">🚢 ICC(A) / 全險 的除外不賠</div>
+      <div class="q-title">投保 ICC(A) 或全險（All Risks），哪些危險保險人<u>不負責</u>賠？</div>
+      <div class="q-concept">
+        即使是最廣的 ICC(A)，以下三種永遠除外不賠：<br>
+        ❌ <span class="hl-r">①正常損耗</span>（例如糖受潮少了一點，那是自然消耗）<br>
+        ❌ <span class="hl-r">②船舶不適航</span>（船出發前就是破船，投保前就知道有問題）<br>
+        ❌ <span class="hl-r">③戰爭</span>（要買附加戰爭險才保）<br><br>
+        ✅ 在避難港卸貨 → ICC(A) 有賠<br>
+        ✅ 波浪捲落 → ICC(A) 有賠
+      </div>
+      <div class="analogy">全險也有不保的：「你自己本來就壞了的東西（正常損耗）」、「明知是爛船還上去（不適航）」、「打仗（需另買戰爭險）」，這三個不賠。</div>
+      <div class="options">
+        <div class="opt">(A) ①②③④（在避難港卸貨ICC(A)有賠）</div>
+        <div class="opt">(B) ②③⑤（波浪捲落ICC(A)有賠）</div>
+        <div class="opt correct">(C) ①②③ ← 答案（這三個除外不賠）</div>
+        <div class="opt">(D) ①③④（在避難港卸貨ICC(A)有賠）</div>
+      </div>
+    </div>
+
+    <!-- Q60 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 60</div>
+      <div class="key-concept">📝 O/A 輸出綜合保險</div>
+      <div class="q-title">投保「O/A 輸出綜合保險」時，哪項<u>不在</u>承保範圍？</div>
+      <div class="q-concept">
+        O/A（記帳方式）輸出綜合保險承保的風險：<br>
+        ✅ 進口國政府變更法令禁止外匯交易（政治風險）<br>
+        ✅ 進口商破產倒閉無力付款（商業風險）<br>
+        ✅ 進口國發生戰爭致中止進口（政治風險）<br>
+        ❌ <span class="hl-r">因商品品質糾紛進口商拒絕付款</span> → 這是<b>賣方自己的問題</b>，輸出保險不賠！
+      </div>
+      <div class="analogy">你賣的東西本身有問題，客戶不肯付錢——這不是政治或商業風險，是你自己的商品問題，保險公司當然不幫你賠。</div>
+      <div class="options">
+        <div class="opt">(A) 進口國禁止外匯交易 → 在承保範圍</div>
+        <div class="opt">(B) 進口商破產無力付款 → 在承保範圍</div>
+        <div class="opt">(C) 進口國戰爭中止進口 → 在承保範圍</div>
+        <div class="opt correct">(D) 因商品品質糾紛進口商拒付 ← 答案（不在承保範圍）</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ CH8：L/C進階 ═══════════ -->
+<div id="ch8" class="section-content">
+<div class="chapter">
+  <div class="chapter-header ch8">
+    <div class="chapter-icon">🏦</div>
+    <div>
+      <h2>第八章：信用狀進階操作</h2>
+      <p>Q61–Q70 ｜ 瑕疵押匯、副提單背書、貿易糾紛、仲裁</p>
+    </div>
+  </div>
+  <div class="card-grid">
+
+    <!-- Q61 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 61</div>
+      <div class="key-concept">⚠️ 瑕疵押匯處理方式</div>
+      <div class="q-title">哪個<u>不是</u>銀行處理瑕疵押匯的方式？</div>
+      <div class="q-concept">
+        <b>瑕疵押匯</b> = 出口商提交的單據有問題（跟信用狀不符），銀行有幾種處理方法：<br><br>
+        ✅ <b>向出口商要保結書</b>（出口商承諾若進口商不付，要自行負責）<br>
+        ✅ <b>要求修改信用狀</b>（把L/C條款修改成跟單據符合）<br>
+        ✅ <b>以託收方式辦理</b>（改用D/P或D/A，不用L/C付款）<br>
+        ❌ <span class="hl-r">取得進口商同意</span> → 這叫「電報查詢（Cable Inquiry）」，是一種方法，但通常不算在「瑕疵押匯」的標準處理流程中；在此題語境下為不正確選項。
+      </div>
+      <div class="analogy">你的作業格式不對，老師可以：①讓你簽保結補交、②叫你改作業規定、③改用別的評分方式。但「去問另一個老師」不是標準流程。</div>
+      <div class="options">
+        <div class="opt">(A) 要求保結書後接受押匯 ✓</div>
+        <div class="opt">(B) 要求修改信用狀後接受押匯 ✓</div>
+        <div class="opt">(C) 以託收方式辦理 ✓</div>
+        <div class="opt correct">(D) 取得進口商同意後接受押匯 ← 答案（非標準方式）</div>
+      </div>
+    </div>
+
+    <!-- Q62 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 62</div>
+      <div class="key-concept">🏦 融資開狀規定</div>
+      <div class="q-title">關於「融資開狀」，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        <b>融資開狀</b> = 進口商請銀行先墊款，但<span class="hl-r">不一定要繳10%保證金</span>！<br>
+        開狀保證金的比例由銀行跟客戶談，可能是0%（完全信任）到100%，沒有固定「至少10%」的規定。<br><br>
+        其他三個是正確的：<br>
+        ✅ 在開狀銀行須有開狀額度<br>
+        ✅ FOB條件進口商須先投保（因為FOB已裝船就是進口商的風險）<br>
+        ✅ 開狀保證金多寡與進口貨品性質有關
+      </div>
+      <div class="options">
+        <div class="opt correct">(A) 至少須先繳信用狀金額10%的開狀保證金 ← 答案（有誤，無固定10%）</div>
+        <div class="opt">(B) 在開狀銀行須有開狀額度 ✓</div>
+        <div class="opt">(C) FOB交易時進口商須先投保 ✓</div>
+        <div class="opt">(D) 開狀保證金與進口貨品性質有關 ✓</div>
+      </div>
+    </div>
+
+    <!-- Q63 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 63</div>
+      <div class="key-concept">📋 副提單背書</div>
+      <div class="q-title">關於「副提單背書」，哪個說法正確？</div>
+      <div class="q-concept">
+        <b>副提單背書</b> = 貨物走短程運輸（例如台灣→中國），船還沒到目的港，進口商就需要先提貨。<br>
+        銀行在<span class="hl-g">正本提單（original）</span>上背書，讓進口商憑此去提貨。<br><br>
+        重點：背書的是<span class="hl-g">正本</span>，不是副本（copy）！<br>
+        副本沒有法律效力，沒有辦法用來提貨。
+      </div>
+      <div class="analogy">副提單背書就像公司在「原始授權書」上蓋章，不是在影印本上蓋章——影印本不算數！</div>
+      <div class="options">
+        <div class="opt">(A) 通常發生在遠洋運輸（是短程！）</div>
+        <div class="opt correct">(B) 銀行背書的提單為正本(original)，非副本(copy) ← 答案</div>
+        <div class="opt">(C) 信用狀應要求提示全套提單（不需要全套）</div>
+        <div class="opt">(D) 應以信用狀開狀申請人為提單受貨人（是以銀行指示）</div>
+      </div>
+    </div>
+
+    <!-- Q64 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 64</div>
+      <div class="key-concept">🔗 信用狀項下託收</div>
+      <div class="q-title">關於「信用狀項下託收」，哪個說法正確？</div>
+      <div class="q-concept">
+        <b>信用狀項下託收</b> = 雖然名稱有「託收」，但本質上仍是<span class="hl-g">信用狀交易</span>，銀行依 UCP（信用狀統一慣例）處理，不是依託收統一規則(URC)。<br><br>
+        這是出口商沒有押匯額度時的變通做法：仍在信用狀框架下進行，只是處理方式稍有不同。
+      </div>
+      <div class="analogy">「信用狀項下託收」就像「線上訂餐外帶」——雖然不在餐廳吃，但還是在那家餐廳的系統下訂單（信用狀框架），不是自己出去找別的餐廳（不是URC）。</div>
+      <div class="options">
+        <div class="opt correct">(A) 屬信用狀交易，銀行依UCP處理 ← 答案</div>
+        <div class="opt">(B) 屬出口託收，銀行依URC處理（錯，依UCP）</div>
+        <div class="opt">(C) 部分L/C、部分託收（不是這樣分的）</div>
+        <div class="opt">(D) 受益人無押匯額度時不可採此方式（錯，可以）</div>
+      </div>
+    </div>
+
+    <!-- Q65 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 65</div>
+      <div class="key-concept">💰 全額結匯開狀</div>
+      <div class="q-title">「全額結匯開狀」是指什麼？</div>
+      <div class="q-concept">
+        <b>全額結匯開狀</b> = 申請人<span class="hl-g">在申請開狀時，就把信用狀全部金額一次繳清</span>。<br>
+        對銀行風險最低（銀行已收到全款），所以銀行不需要審查申請人的信用。<br><br>
+        ❌ (A) L/C金額與合約金額相同 → 那是一般情況，不是「全額結匯」的定義<br>
+        ❌ (C) 贖單時才繳清 → 那是「融資開狀」
+      </div>
+      <div class="analogy">你去7-11代收包裹，一般是「到付」（先拿包裹再付錢），但「全額結匯開狀」是「預付」——郵局寄件時你就已經把所有費用繳清了，收件方直接拿。</div>
+      <div class="options">
+        <div class="opt">(A) L/C金額與買賣契約金額相同（普通情況，非定義）</div>
+        <div class="opt correct">(B) 申請人於申請開狀時即繳清信用狀全部金額 ← 答案</div>
+        <div class="opt">(C) 申請人未繳保證金，贖單時方繳清（那是融資開狀）</div>
+        <div class="opt">(D) 開狀時所繳金額含費用與利息（那是費用說明）</div>
+      </div>
+    </div>
+
+    <!-- Q66 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 66</div>
+      <div class="key-concept">🔄 轉讓信用狀的索賠對象</div>
+      <div class="q-title">出口商將L/C轉讓給第三地工廠，貨物質量不符，進口商應向誰索賠？</div>
+      <div class="q-concept">
+        <b>轉讓信用狀（Transferable L/C）</b>中，出口商（第一受益人）把信用狀轉讓給實際製造商（第二受益人）。<br><br>
+        但對進口商來說，<span class="hl-g">合約對象仍是出口商</span>！<br>
+        進口商跟出口商簽的合約，出了問題當然找出口商，不能跑去找素未謀面的第三地工廠。
+      </div>
+      <div class="analogy">你跟旅行社買了行程，旅行社把部分業務轉包給當地地接公司。結果行程很爛，你要去投訴的是旅行社，不是那個你根本不認識的地接公司。</div>
+      <div class="options">
+        <div class="opt">(A) 海關（海關不管品質糾紛）</div>
+        <div class="opt">(B) 開狀銀行（銀行不管貨物品質）</div>
+        <div class="opt correct">(C) 出口商 ← 答案（合約對象）</div>
+        <div class="opt">(D) 第三地工廠（進口商跟他沒有合約關係）</div>
+      </div>
+    </div>
+
+    <!-- Q67 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 67</div>
+      <div class="key-concept">⚖️ 運送人責任</div>
+      <div class="q-title">哪種情況下，貨主可向運送人索賠？</div>
+      <div class="q-concept">
+        運送人對以下情況<span class="hl-r">不負責（免責）</span>：<br>
+        ❌ 貨物本身性質導致的損失（樟腦油揮發 = 固有缺陷）<br>
+        ❌ 碼頭工人暴動（不可抗力）<br>
+        ❌ 包裝不當（那是貨主自己的問題）<br><br>
+        ✅ <span class="hl-g">貨物在運輸途中遺失</span> → 這是運送人的責任，貨主可以索賠！
+      </div>
+      <div class="analogy">你把行李托給飯店保管，隔天去拿，行李不見了——這是飯店的責任。但如果行李本來就是破的（包裝不當），那是你自己的問題。</div>
+      <div class="options">
+        <div class="opt">(A) 樟腦油途中揮發（貨物固有性質，運送人免責）</div>
+        <div class="opt correct">(B) 貨物於運輸途中遺失 ← 答案</div>
+        <div class="opt">(C) 碼頭工人暴動砸毀（不可抗力）</div>
+        <div class="opt">(D) 包裝不當壓毀（貨主自己的責任）</div>
+      </div>
+    </div>
+
+    <!-- Q68 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 68</div>
+      <div class="key-concept">⚖️ 仲裁(Arbitration)特性</div>
+      <div class="q-title">關於仲裁，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        仲裁的特性：<br>
+        ✅ 裁決一次即定案（不像法院可以上訴）<br>
+        ✅ 裁決具法律效力（可強制執行）<br>
+        ✅ 需當事人同意（自願仲裁）<br>
+        ❌ <span class="hl-r">仲裁人由仲裁機構指定</span> → 不對！仲裁人通常由<span class="hl-g">雙方當事人選定</span>，這是仲裁最大的特色之一（可選擇熟悉該領域的專家）。
+      </div>
+      <div class="analogy">仲裁就像找「公正的第三方朋友」來評理。重點是你們雙方同意找這個人，不是隨機指派。如果是隨機指派的，跟法院有什麼差別？</div>
+      <div class="options">
+        <div class="opt">(A) 裁決一次即定案 ✓</div>
+        <div class="opt">(B) 裁決具法律效力 ✓</div>
+        <div class="opt">(C) 進行須得當事人同意 ✓</div>
+        <div class="opt correct">(D) 仲裁人由仲裁機構指定 ← 答案（有誤，應由當事人選定）</div>
+      </div>
+    </div>
+
+    <!-- Q69 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 69</div>
+      <div class="key-concept">📄 保險索賠文件</div>
+      <div class="q-title">哪個<u>不是</u>被保險人向保險公司提出的索賠文件？</div>
+      <div class="q-concept">
+        保險索賠時通常需要提供：<br>
+        ✅ 提單(B/L)：證明貨物已裝船<br>
+        ✅ 商業發票：證明貨物價值<br>
+        ✅ 公證報告：第三方確認損失狀況<br>
+        ✅ 保險單：當然要有保險<br>
+        ❌ <span class="hl-r">產地證明書(Certificate of Origin)</span>：那是辦關稅減免用的，跟理賠沒有直接關係！
+      </div>
+      <div class="analogy">你的車被撞了要求保險理賠，你需要：行車記錄、維修估價單、車牌照片。但你的駕照發照地（產地）有什麼關係呢？</div>
+      <div class="options">
+        <div class="opt">(A) 提單 ✓（需要）</div>
+        <div class="opt correct">(B) 產地證明書 ← 答案（不需要）</div>
+        <div class="opt">(C) 商業發票 ✓（需要）</div>
+        <div class="opt">(D) 公證報告 ✓（需要）</div>
+      </div>
+    </div>
+
+    <!-- Q70 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 70</div>
+      <div class="key-concept">🤝 貿易糾紛處理原則</div>
+      <div class="q-title">關於貿易糾紛的處理方式，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        貿易糾紛發生時的正確態度：<br>
+        ✅ 以損失最小化為目標<br>
+        ✅ 充分保留證據<br>
+        ✅ 可借助專家<br>
+        ❌ <span class="hl-r">「無須立即處理，以拖待變」</span> → 大錯特錯！<br>
+        貿易糾紛拖越久，損失越大、證據越容易消失、法律時效可能過期。
+      </div>
+      <div class="analogy">手機螢幕裂了就要馬上去修，拖著不理會，灰塵進去、液晶繼續壞，最後整支報廢。貿易糾紛也是一樣，越早處理越好！</div>
+      <div class="options">
+        <div class="opt">(A) 以損失極小化為目標 ✓</div>
+        <div class="opt correct">(B) 無須立即處理，以拖待變 ← 答案（有誤！應立即處理）</div>
+        <div class="opt">(C) 宜充分保留證據 ✓</div>
+        <div class="opt">(D) 可借助專家 ✓</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ CH9：計算題 ═══════════ -->
+<div id="ch9" class="section-content">
+<div class="chapter">
+  <div class="chapter-header ch9">
+    <div class="chapter-icon">🧮</div>
+    <div>
+      <h2>第九章：計算題專攻</h2>
+      <p>Q71–Q75 ｜ CIF報價、進口關稅、利潤率、海運費、空運費</p>
+    </div>
+  </div>
+  <div class="card-grid">
+
+    <!-- Q71 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 71</div>
+      <div class="key-concept">🧮 CIF 報價計算（含遠期L/C貼現息）</div>
+      <div class="q-title">FOB 價 USD122.40/PC，求加上運費、保險、90天遠期L/C貼現息後的 CIF 報價</div>
+      <div class="q-concept">
+        計算步驟：每箱 2 PCS，尺寸 16"×36"×20"，毛重 16 KGS，海運費 USD100/TON 或 USD106/CBM
+      </div>
+      <div class="calc-box"><span class="step">① 每箱運費（取較高）：</span>
+重量：USD100 ÷ 1000 × 16 = <b>USD1.60</b>
+體積：1CBM = 35.315 ft³，16×36×20 in³ = 4ft³
+      USD106 ÷ 35.315 × 4 = <b>USD12.00</b> ← 取較高者
+每 PC 運費：USD12 ÷ 2 PC = <b>USD6.00</b>
+
+<span class="step">② CFR 價 = FOB + 運費：</span>
+USD122.40 + USD6.00 = <b>USD128.40</b>
+
+<span class="step">③ 保險費（CIF × 110% × 0.5%）：</span>
+I = (CFR + I) × 0.55%
+I = USD128.40 × 0.55% ÷ (1 - 0.55%) ≈ <b>USD0.71</b>
+
+<span class="step">④ CIF 價：</span>
+USD128.40 + USD0.71 = <b>USD129.11</b>
+
+<span class="step">⑤ 90天遠期L/C 貼現息（6% p.a.，90+12天）：</span>
+USD129.11 × 6% × 102 ÷ 360 = <b>USD2.19</b>
+
+<span class="ans">✅ 最終報價 = USD129.11 + USD2.19 = USD131.30</span></div>
+      <div class="options">
+        <div class="opt correct">(A) USD131.30 ← 答案</div>
+        <div class="opt">(B) USD129.08</div>
+        <div class="opt">(C) USD128.40</div>
+        <div class="opt">(D) USD124.00</div>
+      </div>
+    </div>
+
+    <!-- Q72 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 72</div>
+      <div class="key-concept">🧮 進口關稅計算（三廠商比較）</div>
+      <div class="q-title">三廠商報價：A廠FOB、B廠CFR、C廠CIF，先換算成CIF找最低，再算關稅</div>
+      <div class="q-concept">
+        資料：12組機器，橫濱→基隆總運費 USD1,320，保險費率1%、110%投保，關稅20%，匯率29.5
+      </div>
+      <div class="calc-box"><span class="step">① 換算每組運費：</span>
+USD1,320 ÷ 12 = USD110 / SET
+
+<span class="step">② 各廠換算成 CIF 每組：</span>
+A 廠：(USD1,256 + 110) ÷ (1 - 1.1×1%) = <b>USD1,381.19</b>  ← 最低！
+B 廠：USD1,385 ÷ (1 - 1.1×1%) = <b>USD1,400.40</b>
+C 廠：直接 = <b>USD1,485.00</b>
+
+<span class="step">③ 選最便宜的 A 廠，計算關稅（完稅價格 = CIF）：</span>
+USD1,381.19 × 12 SET × 20% × 29.5
+
+<span class="ans">✅ 關稅 = NTD97,788</span></div>
+      <div class="options">
+        <div class="opt">(A) NTD8,149</div>
+        <div class="opt">(B) NTD8,762</div>
+        <div class="opt correct">(C) NTD97,788 ← 答案</div>
+        <div class="opt">(D) NTD105,138</div>
+      </div>
+    </div>
+
+    <!-- Q73 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 73</div>
+      <div class="key-concept">🧮 還價後利潤率計算</div>
+      <div class="q-title">原報 USD50 CIF（利潤率10%），買方還 USD52 CIFC5，新利潤率？</div>
+      <div class="q-concept">
+        關鍵：CIFC5 = CIF + 5% Commission（佣金），佣金不是賣方的利潤！
+      </div>
+      <div class="calc-box"><span class="step">① 從原報價找成本：</span>
+50 = CIF成本 + 50 × 10%
+50 = CIF成本 + 5
+CIF成本 = <b>USD45.00</b>
+
+<span class="step">② 買方還價 USD52 CIFC5：</span>
+CIFC5 selling price = CIF selling price ÷ (1 - 5%)
+52 = CIF net selling ÷ 0.95
+CIF net selling = 52 × 0.95 = <b>USD49.40</b>
+
+<span class="step">③ 新利潤率：</span>
+新利潤 = 49.40 - 45.00 = USD4.40
+新利潤率 = 4.40 ÷ 49.40
+
+<span class="ans">✅ 新利潤率 = 8.9%</span></div>
+      <div class="options">
+        <div class="opt">(A) 9.5%</div>
+        <div class="opt">(B) 7.0%</div>
+        <div class="opt">(C) 8.5%</div>
+        <div class="opt correct">(D) 8.9% ← 答案</div>
+      </div>
+    </div>
+
+    <!-- Q74 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 74</div>
+      <div class="key-concept">🧮 LCL vs FCL 海運費比較</div>
+      <div class="q-title">200箱，每箱1'6"×3'×1'8"毛重20KGS，LCL還是FCL比較便宜？</div>
+      <div class="q-concept">
+        先把尺寸換算成 CBM，再分別算 LCL 和 FCL 費用。
+      </div>
+      <div class="calc-box"><span class="step">① 換算體積：</span>
+1'6" = 18", 3' = 36", 1'8" = 20"
+每箱體積 = 18×36×20 = 12,960 in³
+200箱 = 2,592,000 in³
+換算 CBM = 2,592,000 ÷ 61,023.7 ≈ <b>42.47 CBM</b>
+總重量 = 20 × 200 = <b>4 M/T</b>
+
+<span class="step">② LCL 費用（取42.47 CBM，較重量4M/T大）：</span>
+運費 = USD160 × 42.47 = <b>USD6,796</b>
+併櫃費 = TWD300 × 42.47 = TWD12,741 ÷ 30 = <b>USD424.7</b>
+LCL 合計 = <b>USD7,221</b>
+
+<span class="step">③ FCL 費用（42.47 CBM 用40'櫃）：</span>
+運費 = USD5,500
+貨櫃處理費 = TWD7,500 ÷ 30 = USD250
+FCL 合計 = <b>USD5,750</b>
+
+<span class="ans">✅ FCL 較便宜，海運費 USD5,750</span></div>
+      <div class="options">
+        <div class="opt">(A) LCL; USD6,796</div>
+        <div class="opt">(B) LCL; USD7,221</div>
+        <div class="opt">(C) FCL; USD5,500</div>
+        <div class="opt correct">(D) FCL; USD5,750 ← 答案</div>
+      </div>
+    </div>
+
+    <!-- Q75 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 75</div>
+      <div class="key-concept">🧮 空運費計算（取較高級距）</div>
+      <div class="q-title">60 SETS，6 SETS/箱，每箱25kg，45×53×64 cm，應付多少空運費？</div>
+      <div class="q-concept">
+        空運費計算訣竅：算出「計費重量」後，要和「較高級距的最低重量費用」比較，取較低值。
+      </div>
+      <div class="calc-box"><span class="step">① 箱數：</span>
+60 ÷ 6 = <b>10 箱</b>
+
+<span class="step">② 體積重（6000 cm³/kg）：</span>
+45 × 53 × 64 ÷ 6000 × 10 = 152,640 ÷ 6000 × 10
+= 25.44 × 10 = <b>254.4 kg → 進位到 254.5 kg</b>
+
+<span class="step">③ 實際毛重：</span>
+25 × 10 = <b>250 kg</b>
+
+計費重量取大：<b>254.5 kg</b>（體積重較重）
+
+<span class="step">④ 依級距 ≥100kg（TWD306/kg）：</span>
+TWD306 × 254.5 = TWD77,877
+
+<span class="step">⑤ 跟較高級距（≥300kg，TWD250/kg）的最低重量比較：</span>
+TWD250 × 300 = <b>TWD75,000</b> ← 較低！
+
+<span class="ans">✅ 應付空運費 = TWD75,000</span></div>
+      <div class="analogy">重量在100kg級距，但如果用300kg級距的「最低起跳費用」反而更便宜，航空公司讓你用較低的那個！這叫「級距跌破計費」。</div>
+      <div class="options">
+        <div class="opt">(A) TWD63,750</div>
+        <div class="opt correct">(B) TWD75,000 ← 答案</div>
+        <div class="opt">(C) TWD77,846</div>
+        <div class="opt">(D) TWD77,877</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ CH10：時事+英文+L/C實務 ═══════════ -->
+<div id="ch10" class="section-content">
+<div class="chapter">
+  <div class="chapter-header ch10">
+    <div class="chapter-icon">🌐</div>
+    <div>
+      <h2>第十章：國際時事 × 英文 × L/C 實務</h2>
+      <p>Q76–Q100 ｜ CBAM、台美倡議、紅海危機、英文選填、信用狀實務</p>
+    </div>
+  </div>
+  <div class="card-grid">
+
+    <!-- Q76 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 76</div>
+      <div class="key-concept">🌿 歐盟CBAM碳邊境調整機制</div>
+      <div class="q-title">關於歐盟CBAM，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        <b>CBAM</b>（Carbon Border Adjustment Mechanism）= 歐盟的「碳關稅」<br>
+        ✅ 目的：防止碳洩漏（企業跑去沒有碳稅的地方生產）<br>
+        ✅ 2023年10月開始試行，2026年1月正式實施<br>
+        ✅ 申報責任：由<span class="hl-b">歐盟進口商</span>負責申報<br>
+        ❌ <span class="hl-r">選項(C) 說台灣「所有」輸歐盟的碳排產業都受管制</span> → 錯！<br>
+        CBAM 目前只針對<span class="hl-g">特定高碳排產業</span>（鋼鐵、水泥、鋁、肥料、電力、氫），不是所有產業
+      </div>
+      <div class="analogy">CBAM就像「高碳排產品的特別稅」，不是所有台灣出口品都要繳，只有那幾個「高污染行業」的產品才受到影響。</div>
+      <div class="options">
+        <div class="opt">(A) CBAM是為了防範碳洩漏 ✓</div>
+        <div class="opt">(B) 2023年10月試行，2026年1月正式實施 ✓</div>
+        <div class="opt correct">(C) 自2023年10月起，所有輸歐盟的碳排產業都受管制 ← 答案（有誤，只有特定產業）</div>
+        <div class="opt">(D) 進口產品碳排量由歐盟進口商申報 ✓</div>
+      </div>
+    </div>
+
+    <!-- Q77 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 77</div>
+      <div class="key-concept">🔗 COVID後新型態供應鏈</div>
+      <div class="q-title">關於新型態供應鏈的特色，哪個<u>未</u>獲普遍認同？</div>
+      <div class="q-concept">
+        後疫情時代的供應鏈趨勢（普遍認同）：<br>
+        ✅ 永續的(sustainable) — 環保、ESG<br>
+        ✅ 包容的(inclusive) — 納入更多中小企業<br>
+        ✅ 去風險(de-risking) — 減少對特定國家/供應商的依賴<br>
+        ❌ <span class="hl-r">脫鈎(decoupling)</span> → 這個詞太極端、對全球貿易傷害太大，<br>
+        主流是「去風險（de-risking）」而非「完全脫鈎（decoupling）」
+      </div>
+      <div class="analogy">「脫鈎」就是完全斷開關係，但現實中大家還是要做生意。「去風險」才是大家接受的說法——分散風險，不是完全不往來。</div>
+      <div class="options">
+        <div class="opt">(A) 永續的(sustainable) ✓</div>
+        <div class="opt">(B) 包容的(inclusive) ✓</div>
+        <div class="opt correct">(C) 脫鈎(decoupling) ← 答案（未獲普遍認同）</div>
+        <div class="opt">(D) 去風險(de-risking) ✓</div>
+      </div>
+    </div>
+
+    <!-- Q78 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 78</div>
+      <div class="key-concept">🇺🇸🇹🇼 台美21世紀貿易倡議</div>
+      <div class="q-title">關於2023年6月簽署的「台美21世紀貿易倡議」，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        台美 21 世紀貿易倡議初期協議內容：<br>
+        ✅ 不涉及關稅減讓（這個是對的，初期協議沒有降關稅）<br>
+        ✅ 可促進台灣與國際經貿規範接軌<br>
+        ✅ 有助於台灣爭取加入CPTPP<br>
+        ❌ <span class="hl-r">選項(B) 說「初期協議不涉及服務業規章」</span> → 這是錯的！<br>
+        初期協議<span class="hl-g">有包含服務業規章</span>（如數位貿易、服務業改革等）
+      </div>
+      <div class="options">
+        <div class="opt">(A) 初期協議不涉及關稅減讓 ✓</div>
+        <div class="opt correct">(B) 初期協議不涉及服務業規章 ← 答案（有誤，有涉及）</div>
+        <div class="opt">(C) 可促進台灣經貿規範與國際接軌 ✓</div>
+        <div class="opt">(D) 有助於台灣獲准加入CPTPP ✓</div>
+      </div>
+    </div>
+
+    <!-- Q79 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 79</div>
+      <div class="key-concept">🚢 紅海恐攻危機（2023年10月）</div>
+      <div class="q-title">關於「紅海恐攻危機」的後續影響，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        2023年10月起，葉門胡塞武裝組織在紅海/蘇伊士運河區域攻擊商船。<br><br>
+        影響：<br>
+        ✅ 多家航商改道繞過好望角（更長、更貴）<br>
+        ✅ 蘇伊士運河貿易受衝擊<br>
+        ✅ 運輸成本上升、交期延長<br>
+        ❌ <span class="hl-r">消費者不受影響</span> → 大錯！<br>
+        運費上漲 → 商品成本上漲 → 物價上漲 → <span class="hl-g">消費者要多付錢</span>
+      </div>
+      <div class="analogy">就像石油漲價，最後都會反映在汽油、物價上。遠在紅海的運費危機，最終也會讓你買東西時多付一些錢。</div>
+      <div class="options">
+        <div class="opt">(A) 多家航商避開紅海改道好望角 ✓</div>
+        <div class="opt">(B) 蘇伊士運河貿易受衝擊 ✓</div>
+        <div class="opt">(C) 影響運輸成本和交貨時程 ✓</div>
+        <div class="opt correct">(D) 消費者不受到此國際事件影響 ← 答案（有誤，消費者受影響）</div>
+      </div>
+    </div>
+
+    <!-- Q80 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 80</div>
+      <div class="key-concept">🌍 台灣在國際經貿組織的地位</div>
+      <div class="q-title">關於國際經貿組織，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        <table class="mini-table">
+          <tr><th>組織</th><th>台灣地位</th></tr>
+          <tr><td>WTO</td><td class="hl-g">✅ 會員（2002年加入）</td></tr>
+          <tr><td>OECD</td><td>非正式會員，但<span class="hl-r">有參加部分委員會</span></td></tr>
+          <tr><td>CPTPP</td><td class="hl-b">已正式申請加入</td></tr>
+          <tr><td>APEC</td><td class="hl-g">✅ 會員（以「中華台北」名義）</td></tr>
+        </table>
+        ❌ 選項(B) 說「台灣非OECD會員，故未參加其委員會」→ 錯！<br>
+        台灣雖非OECD正式會員，但仍有以觀察員或其他方式<span class="hl-g">參加部分委員會</span>。
+      </div>
+      <div class="options">
+        <div class="opt">(A) 我國為WTO會員國 ✓</div>
+        <div class="opt correct">(B) 我國非OECD會員，故未參加其委員會 ← 答案（有誤）</div>
+        <div class="opt">(C) 我國已正式申請加入CPTPP ✓</div>
+        <div class="opt">(D) 我國為APEC的會員國 ✓</div>
+      </div>
+    </div>
+
+    <!-- Q81 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 81</div>
+      <div class="key-concept">🔤 英文選填：商業單據</div>
+      <div class="q-title">Attached is a _____ for the sample charge we are to collect from you.</div>
+      <div class="eng-card">
+        Attached is a <span class="eng-blank">Debit Note</span> for the sample charge we are to collect from you.<br>
+        （附上一份<b>借記單</b>，說明我方將向您收取的樣品費用。）
+      </div>
+      <div class="q-concept">
+        <table class="mini-table">
+          <tr><th>單據</th><th>用途</th></tr>
+          <tr><td class="hl-g">Debit Note（借記單）</td><td>通知對方「你欠我錢」，要求付款</td></tr>
+          <tr><td>Credit Note（貸記單）</td><td>通知對方「我欠你錢」，退款通知</td></tr>
+          <tr><td>Cover Note（暫保單）</td><td>保險暫時證明</td></tr>
+          <tr><td>Promissory Note（本票）</td><td>支付承諾書</td></tr>
+        </table>
+        「我要向你收錢」→ 用 Debit Note（借記）
+      </div>
+      <div class="options">
+        <div class="opt correct">(A) Debit Note ← 答案</div>
+        <div class="opt">(B) Cover Note（暫保單）</div>
+        <div class="opt">(C) Credit Note（退款通知）</div>
+        <div class="opt">(D) Promissory Note（本票）</div>
+      </div>
+    </div>
+
+    <!-- Q82 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 82</div>
+      <div class="key-concept">🔤 英文選填：包裝</div>
+      <div class="q-title">Every 6 sets of this item are _____ in a carton. Please increase your order quantity to 1,002 sets to make _____ cartons.</div>
+      <div class="eng-card">
+        Every 6 sets of this item are <span class="eng-blank">packed</span> in a carton. Please increase your order quantity to 1,002 sets to make <span class="eng-blank">full</span> cartons.<br>
+        （本商品每6套<b>裝箱</b>一箱，請調整訂量為1,002套，湊成<b>整箱</b>數量。）
+      </div>
+      <div class="q-concept">
+        🔵 <b>packed</b>（過去分詞，形容裝箱的狀態）：are packed = 被裝入<br>
+        🔵 <b>full cartons</b>（整箱）：表示湊成完整箱數，不能用 whole（whole 用於不可數的整體，如 whole day）
+      </div>
+      <div class="options">
+        <div class="opt">(A) packed; whole（whole用法錯）</div>
+        <div class="opt">(B) packing; full（packing是動名詞，語法錯）</div>
+        <div class="opt correct">(C) packed; full ← 答案</div>
+        <div class="opt">(D) packing; whole（兩個都錯）</div>
+      </div>
+    </div>
+
+    <!-- Q83 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 83</div>
+      <div class="key-concept">🔤 英文選填：正式訂單</div>
+      <div class="q-title">This is a _____, so please proceed with _____ as soon as you can.</div>
+      <div class="eng-card">
+        This is a <span class="eng-blank">firm order</span>, so please proceed with <span class="eng-blank">production</span> as soon as you can.<br>
+        （這是一份<b>確定訂單</b>，請盡快安排<b>生產</b>。）
+      </div>
+      <div class="q-concept">
+        🔵 <b>firm order</b>（確定訂單）：firm 是形容詞，修飾 order，名詞前用形容詞<br>
+        🔵 <b>production</b>（名詞）：proceed with + 名詞，「進行生產」<br>
+        ❌ produce 是動詞，不能接在 with 後面
+      </div>
+      <div class="options">
+        <div class="opt">(A) format order; producing（格式錯、動名詞但不對）</div>
+        <div class="opt">(B) firmed order; products（firmed錯誤用法）</div>
+        <div class="opt">(C) firming order; produce（produce是動詞）</div>
+        <div class="opt correct">(D) firm order; production ← 答案</div>
+      </div>
+    </div>
+
+    <!-- Q84 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 84</div>
+      <div class="key-concept">🔤 英文選填：賠償</div>
+      <div class="q-title">The damaged goods have been kept aside in case you need them to support a claim on your suppliers for _____.</div>
+      <div class="eng-card">
+        The damaged goods have been kept aside in case you need them to support a claim on your suppliers for <span class="eng-blank">compensation</span>.<br>
+        （受損貨物已保留，以備您向供應商索取<b>賠償</b>時使用。）
+      </div>
+      <div class="q-concept">
+        <table class="mini-table">
+          <tr><th>單字</th><th>中文</th><th>用法</th></tr>
+          <tr><td class="hl-g">compensation</td><td>賠償、補償</td><td>損害賠償</td></tr>
+          <tr><td>coverage</td><td>保險範圍</td><td>保險相關</td></tr>
+          <tr><td>collection</td><td>收款</td><td>收帳相關</td></tr>
+          <tr><td>commission</td><td>佣金</td><td>中間人費用</td></tr>
+        </table>
+      </div>
+      <div class="options">
+        <div class="opt">(A) coverage（保險範圍）</div>
+        <div class="opt">(B) collection（收款）</div>
+        <div class="opt correct">(C) compensation ← 答案（賠償）</div>
+        <div class="opt">(D) commission（佣金）</div>
+      </div>
+    </div>
+
+    <!-- Q85 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 85</div>
+      <div class="key-concept">🔤 英文選填：報價有效期</div>
+      <div class="q-title">Please note that this quotation is _____ to acceptance within 30 days.</div>
+      <div class="eng-card">
+        Please note that this quotation is <span class="eng-blank">subject</span> to acceptance within 30 days.<br>
+        （請注意，本報價<b>以</b>30天內接受<b>為條件</b>。）
+      </div>
+      <div class="q-concept">
+        固定搭配：<b>subject to</b> = 以…為條件，受…限制<br>
+        這是貿易英文的高頻用語：<br>
+        "subject to change" = 可能變動<br>
+        "subject to availability" = 視庫存而定<br>
+        "subject to acceptance" = 以接受為前提
+      </div>
+      <div class="options">
+        <div class="opt">(A) due（due to = 由於，不對）</div>
+        <div class="opt correct">(B) subject ← 答案</div>
+        <div class="opt">(C) available（available to不是這個意思）</div>
+        <div class="opt">(D) flexible（flexible to用法不對）</div>
+      </div>
+    </div>
+
+    <!-- Q86 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 86</div>
+      <div class="key-concept">🔤 英文選填：漲價通知</div>
+      <div class="q-title">Due to _____ raw material costs, we find it necessary to _____ our prices.</div>
+      <div class="eng-card">
+        Due to <span class="eng-blank">rising</span> raw material costs, we find it necessary to <span class="eng-blank">raise</span> our prices.<br>
+        （由於原料成本<b>上漲</b>，我方需要<b>調漲</b>價格。）
+      </div>
+      <div class="q-concept">
+        🔵 <b>rising</b>（上升中的，現在分詞形容詞）修飾 costs<br>
+        🔵 <b>raise</b>（及物動詞）= 提高，需要有受詞（raise our prices）<br>
+        ❌ rise 是不及物動詞，不能接受詞（prices rise，不能 rise prices）<br>
+        ❌ increase 可以用，但這題選 raise 更佳（且符合選項）
+      </div>
+      <div class="options">
+        <div class="opt">(A) risen...raise up（risen是完成式，not現在進行；raise up重複）</div>
+        <div class="opt">(B) raising...increase（raising作主詞時OK，但搭配不如D）</div>
+        <div class="opt">(C) increasing...rise（rise不及物，無法接our prices）</div>
+        <div class="opt correct">(D) rising...raise ← 答案</div>
+      </div>
+    </div>
+
+    <!-- Q87 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 87</div>
+      <div class="key-concept">🔤 英文選填：付款</div>
+      <div class="q-title">If the invoice is in order, we will expect to receive your remittance in full _____ without further delay.</div>
+      <div class="eng-card">
+        If the invoice is in order, we will expect to receive your remittance in full <span class="eng-blank">settlement</span> without further delay.<br>
+        （若發票無誤，我方期望在不再延誤的情況下收到您的全額<b>付清款項</b>。）
+      </div>
+      <div class="q-concept">
+        <b>settlement</b> = 結清、付清（常見搭配：full settlement = 全額結清）<br>
+        remittance = 匯款<br>
+        in full settlement = 以全額支付方式結清帳款
+      </div>
+      <div class="options">
+        <div class="opt correct">(A) settlement ← 答案（全額結清）</div>
+        <div class="opt">(B) capacity（容量，不對）</div>
+        <div class="opt">(C) account（帳戶，語意不順）</div>
+        <div class="opt">(D) debt（債務，語氣太負面）</div>
+      </div>
+    </div>
+
+    <!-- Q88 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 88</div>
+      <div class="key-concept">🔤 英文選填：品質不符</div>
+      <div class="q-title">If the quality of the garments _____ that of the sample, we reserve the right to return them.</div>
+      <div class="eng-card">
+        If the quality of the garments <span class="eng-blank">does not match</span> that of the sample, we reserve the right to return them.<br>
+        （若服裝品質與樣品<b>不符</b>，我方保留退貨的權利。）
+      </div>
+      <div class="q-concept">
+        🔵 <b>match</b>（搭配，符合）→ does not match = 不符合<br>
+        ❌ "inferior to" 是形容詞片語，不能接在 if 子句的動詞位置<br>
+        ❌ "falls short" 需要接 of（falls short of the sample）<br>
+        ❌ "does not align" 在這裡語意較弱
+      </div>
+      <div class="options">
+        <div class="opt">(A) inferior to（形容詞片語，語法不對）</div>
+        <div class="opt">(B) falls short（要加 of the sample）</div>
+        <div class="opt correct">(C) does not match ← 答案</div>
+        <div class="opt">(D) does not align（align with，語意較弱）</div>
+      </div>
+    </div>
+
+    <!-- Q89 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 89</div>
+      <div class="key-concept">🔤 英文選填：庫存不多</div>
+      <div class="q-title">It is recommended that you place your order soon as _____.</div>
+      <div class="eng-card">
+        It is recommended that you place your order soon as <span class="eng-blank">our stock is running low</span>.<br>
+        （建議您盡快下訂，因為我方<b>庫存已快耗盡</b>。）
+      </div>
+      <div class="q-concept">
+        <b>stock is running low</b> = 庫存越來越少（run low = 快耗盡了）<br>
+        這句話的邏輯：「快沒貨了，所以趕快訂！」<br>
+        ❌ (A) stock price is diving = 股價下跌（說的是「股價」，跟訂貨無關）<br>
+        ❌ (B) prices are set to decrease = 價格要降了（那就等降再訂？邏輯不對）<br>
+        ❌ (D) replenishing = 正在補貨（那不急，等補完再說）
+      </div>
+      <div class="options">
+        <div class="opt">(A) our stock price is diving（股價下跌，無關）</div>
+        <div class="opt">(B) our prices are set to decrease shortly（要降價？那等等再訂）</div>
+        <div class="opt correct">(C) our stock is running low ← 答案（庫存快沒了）</div>
+        <div class="opt">(D) we are replenishing our stock（正在補貨，不急）</div>
+      </div>
+    </div>
+
+    <!-- Q90 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 90</div>
+      <div class="key-concept">🔤 英文選填：報價有效期</div>
+      <div class="q-title">The price we quote is based on FOB Yokohama terms and remains _____ until December 31, 2024.</div>
+      <div class="eng-card">
+        The price we quote is based on FOB Yokohama terms and remains <span class="eng-blank">valid</span> until December 31, 2024.<br>
+        （我方報價依FOB橫濱條件，<b>有效期</b>至2024年12月31日。）
+      </div>
+      <div class="q-concept">
+        <b>valid</b> = 有效的（常用語：valid until / valid for）<br>
+        ❌ effected（影響了，語法錯）<br>
+        ❌ due（到期、適當，不是這個語境）<br>
+        ❌ efficient（有效率的，不是法律有效性）
+      </div>
+      <div class="options">
+        <div class="opt">(A) effected（語法錯誤）</div>
+        <div class="opt correct">(B) valid ← 答案（有效期）</div>
+        <div class="opt">(C) due（到期，意思不對）</div>
+        <div class="opt">(D) efficient（有效率，不是有效期）</div>
+      </div>
+    </div>
+
+    <!-- Q91-100 L/C PRACTICAL -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 91–100</div>
+      <div class="key-concept">📋 信用狀實務解讀（看附件）</div>
+      <div class="q-title">Q91-Q100：根據附件信用狀（UCB23123）與相關單據作答</div>
+      <div class="q-concept">
+        先整理信用狀的關鍵欄位：
+        <table class="mini-table">
+          <tr><th>欄位</th><th>內容</th></tr>
+          <tr><td>開狀銀行</td><td>UNITED COMMERCIAL BANK LTD. PRINCIPAL BRANCH</td></tr>
+          <tr><td>通知銀行</td><td class="hl-g">MEGA INTERNATIONAL COMMERCIAL BANK NORTH-TAICHUNG BRANCH</td></tr>
+          <tr><td>申請人（進口商）</td><td>BRIGHT LIMITED（孟加拉）</td></tr>
+          <tr><td>受益人（出口商）</td><td>RICH TRADING COMPANY（台灣台中）</td></tr>
+          <tr><td>貨物</td><td>60 SETS OF ACTUATOR WITH MOTOR</td></tr>
+          <tr><td>付款方式</td><td>讓購（BY NEGOTIATION）</td></tr>
+          <tr><td>匯票遠期</td><td>30 DAYS FROM DATE</td></tr>
+          <tr><td>裝船人</td><td class="hl-g">STRONG CO., LTD.（台中）</td></tr>
+          <tr><td>提單抬頭</td><td>TO ORDER OF ISSUING BANK（開狀銀行指示）</td></tr>
+          <tr><td>可否轉讓</td><td class="hl-g">YES（透過通知銀行）</td></tr>
+          <tr><td>最後裝船日</td><td>2023年7月14日</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Q91 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 91</div>
+      <div class="key-concept">🏦 通知銀行是哪一家？</div>
+      <div class="q-title">本信用狀通知銀行為？</div>
+      <div class="q-concept">
+        信用狀的 <span class="hl-b">Advise Through Bank（57A）欄位</span>就是通知銀行：<br>
+        <b>MEGA INTERNATIONAL COMMERCIAL BANK NORTH-TAICHUNG BRANCH</b><br>
+        （兆豐國際商業銀行北台中分行）<br><br>
+        注意區分：<br>
+        開狀銀行 = UCB（孟加拉的銀行）<br>
+        通知銀行 = 兆豐（台灣的銀行，負責把L/C通知給出口商）
+      </div>
+      <div class="options">
+        <div class="opt">(A) ANY BANK（那是可選擇押匯銀行的意思）</div>
+        <div class="opt">(B) UNITED COMMERCIAL BANK LTD.（那是開狀銀行）</div>
+        <div class="opt">(C) UNITED COMMERCIAL BANK LTD. PRINCIPAL BRANCH（開狀銀行主要分行）</div>
+        <div class="opt correct">(D) MEGA INTERNATIONAL COMMERCIAL BANK NORTH-TAICHUNG BRANCH ← 答案</div>
+      </div>
+    </div>
+
+    <!-- Q92 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 92</div>
+      <div class="key-concept">✍️ 各單據的簽發人</div>
+      <div class="q-title">關於押匯文件上所顯示之簽發人，哪個正確？</div>
+      <div class="q-concept">
+        L/C 規定各單據的簽發人：<br>
+        🔵 <b>匯票（B/E）</b>：由受益人 RICH TRADING COMPANY 出具<br>
+        🔵 <b>包裝單</b>：L/C 要求 NEUTRAL PACKING LIST（中性包裝單），所以<span class="hl-r">不寫任何公司名稱</span><br>
+        🔵 <b>提單（B/L）</b>：由運送人 <span class="hl-g">WHA LINES LTD.</span>（和美航運）簽發<br>
+        🔵 <b>商業發票</b>：由受益人 RICH TRADING COMPANY 開立
+      </div>
+      <div class="options">
+        <div class="opt">(A) 匯票: MEGA INTERNATIONAL COMMERCIAL BANK（匯票是出口商開的）</div>
+        <div class="opt">(B) 包裝單: RICH TRADING COMPANY（中性包裝單不顯示公司名）</div>
+        <div class="opt correct">(C) 提單: WHA LINES LTD. ← 答案（船公司簽發）</div>
+        <div class="opt">(D) 發票: BRIGHT LIMITED（發票是出口商RICH開的）</div>
+      </div>
+    </div>
+
+    <!-- Q93 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 93</div>
+      <div class="key-concept">📋 本信用狀的性質</div>
+      <div class="q-title">本信用狀屬於哪種類型？</div>
+      <div class="q-concept">
+        從L/C欄位判斷：<br>
+        🔵 <b>40A: IRREVOCABLE</b> → 不可撤銷<br>
+        🔵 <b>41A: ADVISING BANK BY NEGOTIATION</b> → 讓購信用狀（出口商可押匯）<br>
+        🔵 <b>47A: THIS CREDIT IS TRANSFERABLE THROUGH THE ADVISING BANK</b> → <span class="hl-g">可轉讓</span><br>
+        🔵 <b>49: MAY ADD</b> → 保兌是「得保兌」，不是已保兌<br><br>
+        → 結論：<span class="hl-g">可轉讓、讓購信用狀</span>
+      </div>
+      <div class="options">
+        <div class="opt">(A) 不可轉讓、無保兌信用狀（有轉讓，錯）</div>
+        <div class="opt correct">(B) 可轉讓、讓購信用狀 ← 答案</div>
+        <div class="opt">(C) 不可撤銷、延期付款信用狀（是讓購，非延期付款）</div>
+        <div class="opt">(D) 可撤銷、保兌信用狀（是不可撤銷；MAY ADD≠已保兌）</div>
+      </div>
+    </div>
+
+    <!-- Q94 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 94</div>
+      <div class="key-concept">📅 30天到期日計算</div>
+      <div class="q-title">匯票規定「30 DAYS FROM DATE」，裝船日2023/7/10，到期日起算日為？</div>
+      <div class="q-concept">
+        <b>30 DAYS FROM DATE</b> = 從匯票<span class="hl-b">開立日</span>（DATE）起算30天<br><br>
+        提單（B/L）上：<br>
+        📌 Shipped on Board Date = <span class="hl-g">2023年7月10日</span>（裝船日）<br>
+        📌 Place/Date of Issue = <span class="hl-y">TAICHUNG / JULY 11, 2023</span>（提單簽發日）<br>
+        📌 匯票（B/E）開立日 = <span class="hl-r">JULY 12, 2023</span>（匯票上的日期）<br><br>
+        "FROM DATE" 從匯票開立日7月12日的「次日」起算：<br>
+        → 起算日 = <span class="hl-g">7月13日</span>，往後算30天到期
+      </div>
+      <div class="options">
+        <div class="opt">(A) 2023年7月10日（裝船日，不是匯票日）</div>
+        <div class="opt">(B) 2023年7月11日（提單簽發日）</div>
+        <div class="opt">(C) 2023年7月12日（匯票日，起算從次日）</div>
+        <div class="opt correct">(D) 2023年7月13日 ← 答案（匯票日次日起算）</div>
+      </div>
+    </div>
+
+    <!-- Q95 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 95</div>
+      <div class="key-concept">🛡️ 保險單據規定</div>
+      <div class="q-title">關於保險單據，哪個說法<u>有誤</u>？</div>
+      <div class="q-concept">
+        L/C 規定：保險金額 = <span class="hl-b">120% × 發票金額（USD48,000）</span><br>
+        → 最低保險金額 = USD48,000 × 120% = <span class="hl-g">USD57,600</span>（選項A正確）<br><br>
+        保險單日期規定：不得<span class="hl-r">晚於裝船日</span>（不是晚於7月11日）<br>
+        裝船日 = 2023年7月10日（Shipped on Board Date）<br>
+        → 保險單日期不得遲於<span class="hl-g">7月10日</span>，選項(B)說7月11日是<span class="hl-r">有誤的</span>。
+      </div>
+      <div class="options">
+        <div class="opt">(A) 最低保險金額為USD57,600 ✓</div>
+        <div class="opt correct">(B) 保險單日期不得遲於2023年7月11日 ← 答案（有誤，應是7月10日）</div>
+        <div class="opt">(C) 保險種類為ICC(A) ✓</div>
+        <div class="opt">(D) 理賠地點為BANGLADESH ✓</div>
+      </div>
+    </div>
+
+    <!-- Q96 -->
+    <div class="q-card c-indigo">
+      <div class="q-num">Q 96</div>
+      <div class="key-concept">📄 匯票空格(1) = Drawee（付款人）</div>
+      <div class="q-title">匯票空格(1)（付款人/Drawee）應填寫哪家機構？</div>
+      <div class="q-concept">
+        L/C 的 <b>Drawee 欄位（42A）= ISSUING BANK（開狀銀行）</b><br>
+        開狀銀行 = <span class="hl-g">UNITED COMMERCIAL BANK LTD. PRINCIPAL BRANCH</span><br><br>
+        匯票的付款人（Drawee）就是開狀銀行，因為開狀銀行承諾在符合條件時付款。<br>
+        受益人（出口商 RICH TRADING COMPANY）是出票人（Drawer）。
+      </div>
+      <div class="options">
+        <div class="opt">(A) BRIGHT LIMITED（那是進口商/申請人）</div>
+        <div class="opt">(B) RICH TRADING COMPANY（那是出口商/出票人）</div>
+        <div class="opt correct">(C) UNITED COMMERCIAL BANK LTD PRINCIPAL BRANCH ← 答案（開狀銀行=付款人）</div>
+        <div class="opt">(D) MEGA INTERNATIONAL COMMERCIAL BANK NORTH-TAICHUNG BRANCH（通知銀行）</div>
+      </div>
+    </div>
+
+    <!-- Q97 -->
+    <div class="q-card c-rose">
+      <div class="q-num">Q 97</div>
+      <div class="key-concept">📋 發票各空格填寫</div>
+      <div class="q-title">依據所附發票，哪個記載內容正確？</div>
+      <div class="q-concept">
+        對照 L/C 內容填寫發票：<br>
+        🔵 空格(1) = 匯票號碼：RT-123<br>
+        🔵 <span class="hl-g">空格(2) = 貨物描述：60 SETS OF ACTUATOR WITH MOTOR</span>（依L/C 45A）<br>
+        🔵 空格(3) = 買方（進口商）：BRIGHT LIMITED（不是RICH）<br>
+        🔵 空格(4) = 船名：ARGOLIKOS（提單上的船名）<br>
+        🔵 空格(5) = 貿易條件：CIF CHATTOGRAM, BANGLADESH（L/C上寫的）
+      </div>
+      <div class="options">
+        <div class="opt correct">(A) 空格(2): 60 SETS OF ACTUATOR WITH MOTOR ← 答案</div>
+        <div class="opt">(B) 空格(3): RICH TRADING COMPANY（空格3是買方，應是BRIGHT LIMITED）</div>
+        <div class="opt">(C) 空格(4): ARGOLIKOS（船名是對的，但選項說有誤）</div>
+        <div class="opt">(D) 空格(5): CIF CHATTOGRAM, BANGLADESH（應是CFR或CIF，題目指此欄）</div>
+      </div>
+    </div>
+
+    <!-- Q98 -->
+    <div class="q-card c-amber">
+      <div class="q-num">Q 98</div>
+      <div class="key-concept">📋 發票必須記載哪些號碼？</div>
+      <div class="q-title">哪個號碼<u>不是</u>發票必須記載的？</div>
+      <div class="q-concept">
+        L/C 附加條件（47A）規定：<br>
+        ✅ Commercial Invoice must bear：<br>
+        &nbsp;&nbsp;&nbsp;<b>P/I NO. R-231856</b>（PI號碼）<br>
+        &nbsp;&nbsp;&nbsp;<b>H.S. CODE 8501.10.90</b>（貨品稅則號）<br>
+        &nbsp;&nbsp;&nbsp;<b>L/C NO. UCB23123</b>（信用狀號碼）<br><br>
+        ❌ <span class="hl-r">B/L NO. Y7231583</span>（提單號碼）→ L/C沒有要求發票上要寫B/L號碼，這是提單上的號碼。
+      </div>
+      <div class="options">
+        <div class="opt">(A) L/C NO. UCB23123（必須，L/C要求）</div>
+        <div class="opt correct">(B) B/L NO. Y7231583 ← 答案（不是必須記載在發票上的）</div>
+        <div class="opt">(C) P/I NO. R-231856（必須，L/C要求）</div>
+        <div class="opt">(D) H.S. CODE 8501.10.90（必須，L/C要求）</div>
+      </div>
+    </div>
+
+    <!-- Q99 -->
+    <div class="q-card c-orange">
+      <div class="q-num">Q 99</div>
+      <div class="key-concept">📋 提單空格(6) = 裝船人(Shipper)</div>
+      <div class="q-title">提單空格(6)應記載哪個公司名稱？</div>
+      <div class="q-concept">
+        L/C 規定（46A）：<br>
+        Bills of Lading should be marked with <span class="hl-g">STRONG CO., LTD. AS SHIPPER</span><br><br>
+        L/C 特別指定 STRONG CO., LTD. 作為裝船人（Shipper），即使實際貨物是由 RICH TRADING COMPANY 出口。<br>
+        （這在轉讓信用狀或貿易中間商的情況下很常見）
+      </div>
+      <div class="options">
+        <div class="opt">(A) BRIGHT LIMITED（進口商，不是裝船人）</div>
+        <div class="opt">(B) RICH TRADING COMPANY（受益人/出口商，但L/C指定是STRONG）</div>
+        <div class="opt correct">(C) STRONG CO., LTD. ← 答案（L/C指定的裝船人）</div>
+        <div class="opt">(D) WHA LINES LTD.（船公司，是承運人不是裝船人）</div>
+      </div>
+    </div>
+
+    <!-- Q100 -->
+    <div class="q-card c-teal">
+      <div class="q-num">Q 100</div>
+      <div class="key-concept">📦 整櫃提貨的服務模式</div>
+      <div class="q-title">貨物安排整櫃提貨，提單空格(7)應勾選哪種服務模式？</div>
+      <div class="q-concept">
+        貨櫃場（CY）vs 貨物集散站（CFS）：<br>
+        <table class="mini-table">
+          <tr><th>代碼</th><th>出口端</th><th>進口端</th><th>適用</th></tr>
+          <tr><td>CY-CY</td><td class="hl-g">整櫃（CY）</td><td class="hl-g">整櫃（CY）</td><td class="hl-g">整批貨整櫃進出</td></tr>
+          <tr><td>CY-CFS</td><td>整櫃（CY）</td><td>拆箱（CFS）</td><td>出口整櫃，進口拆</td></tr>
+          <tr><td>CFS-CY</td><td>拼箱（CFS）</td><td>整櫃（CY）</td><td>出口拼箱，進口整</td></tr>
+          <tr><td>CFS-CFS</td><td>拼箱（CFS）</td><td>拆箱（CFS）</td><td>拼箱進出</td></tr>
+        </table>
+        題目說「整櫃提貨（CY）」，且是整批貨物整櫃進出 → <span class="hl-g">CY-CY</span>
+      </div>
+      <div class="options">
+        <div class="opt">(A) CFS-CFS（兩端都是散貨，不對）</div>
+        <div class="opt">(B) CFS-CY（出口散貨，不對）</div>
+        <div class="opt">(C) CY-CFS（進口端拆箱，不對）</div>
+        <div class="opt correct">(D) CY-CY ← 答案（整櫃進出）</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ═══════════ QUIZ ═══════════ -->
+<div id="quiz" class="section-content">
+<div id="quiz-section">
+  <div class="quiz-header">
+    <h2>🎯 後半段隨堂測驗</h2>
+    <p>從 Q51–Q100 中精選 10 題，挑戰你的掌握程度！</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="quizBar" style="width:0%"></div>
+    </div>
+    <div id="quizStatus" style="font-size:13px;color:#78716c;">尚未開始</div>
+  </div>
+  <div id="quizContainer"></div>
+  <div class="score-board" id="scoreBoard">
+    <h3>🏆 測驗完成！</h3>
+    <div class="score-big" id="scoreDisplay">0</div>
+    <div style="font-size:16px;opacity:0.85;margin-top:4px;">/ 10 題答對</div>
+    <p id="scoreMsg" style="margin-top:12px;font-size:15px;opacity:0.9;"></p>
+    <button class="restart-btn" onclick="startQuiz()">🔄 再挑戰一次</button>
+  </div>
+</div>
+</div>
+
+<footer>
+  🌏 國際貿易大冒險 Vol.2 ｜ 第十九屆國際貿易大會考 Q51–Q100 精解<br>
+  搭配 Vol.1（Q1–Q50）一起使用，完整備考！❤️
+</footer>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx = ['ch6','ch7','ch8','ch9','ch10','quiz'];
+  document.querySelectorAll('.tab-btn')[idx.indexOf(id)].classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (id === 'quiz') startQuiz();
+  setTimeout(revealCards, 100);
+}
+
+function revealCards() {
+  document.querySelectorAll('.section-content.active .q-card').forEach((c, i) => {
+    setTimeout(() => c.classList.add('visible'), i * 60);
+  });
+}
+
+const quizData = [
+  {
+    q: '空運提單(Air Waybill)的受貨人(consignee)欄位，採用哪種記載方式？',
+    opts: ['(A) 空白背書式，可任意轉讓', '(B) 指示式，可背書給下一人', '(C) 記名式，直接寫收貨人名稱', '(D) 不需要填寫受貨人'],
+    ans: 2,
+    explain: 'AWB 的受貨人是「記名式」——直接寫清楚誰來拿貨，不能像海運提單那樣背書轉讓。'
+  },
+  {
+    q: '出口商向船公司申請「電放」貨物時，需要提供什麼文件？',
+    opts: ['(A) 切結書(L/I)', '(B) 裝貨單(S/O)', '(C) 銀行保證函(L/G)', '(D) 小提單(D/O)'],
+    ans: 0,
+    explain: '申請電放時，出口商需繳回正本提單，並出具切結書(L/I)，聲明不再用提單提貨，船公司才會以電子方式通知目的港放貨。'
+  },
+  {
+    q: '複合運送的四個貨物移動點，正確順序為？①裝貨港②卸貨港③收貨地④交貨地',
+    opts: ['(A) ①②③④', '(B) ③④①②', '(C) ④①②③', '(D) ③①②④'],
+    ans: 3,
+    explain: '記憶口訣「收→裝→卸→交」：收貨地(③)→裝貨港(①)→卸貨港(②)→交貨地(④)。'
+  },
+  {
+    q: 'ICC(Air)空運保險，在目的機場完成卸貨後超過幾天，保險效力終止？',
+    opts: ['(A) 30日', '(B) 60日', '(C) 90日', '(D) 120日'],
+    ans: 0,
+    explain: 'ICC(Air)規定目的機場卸貨後30天保險效力終止，海運ICC(A/B/C)是卸貨後60天。空運快，緩衝期較短。'
+  },
+  {
+    q: '共同海損事故：船長拋棄A貨物讓B、C貨物和船安全到港，哪些人應分擔共同海損？',
+    opts: ['(A) B貨主、C貨主、船東', '(B) A、B、C貨主＋船東＋運送人全部', '(C) B、C貨主＋船東＋運送人', '(D) 只有B、C貨主'],
+    ans: 1,
+    explain: '共同海損由所有因此獲救的人分攤，包括被犧牲的A貨主也要分擔（A的貨雖然沒了，但人或其他財產因此得救）。所有①②③④⑤都要分攤。'
+  },
+  {
+    q: '投保ICC(A)/全險，哪些危險不在賠償範圍？',
+    opts: ['(A) 在避難港卸貨、正常損耗、戰爭', '(B) 波浪捲落、船舶不適航、戰爭', '(C) 正常損耗、船舶不適航、戰爭', '(D) 正常損耗、戰爭、在避難港卸貨'],
+    ans: 2,
+    explain: 'ICC(A)仍有三大除外：①正常損耗（自然消耗）、②船舶不適航（出發前就知道是破船）、③戰爭（需另購戰爭險）。在避難港卸貨和波浪捲落ICC(A)是有賠的。'
+  },
+  {
+    q: '關於仲裁，哪個說法有誤？',
+    opts: ['(A) 裁決一次即定案，不能上訴', '(B) 裁決具有法律效力', '(C) 進行須得當事人同意', '(D) 仲裁人由仲裁機構指定'],
+    ans: 3,
+    explain: '仲裁最大特色是仲裁人由「雙方當事人選定」，而非仲裁機構指定——這讓雙方可以選擇熟悉該領域的專家來裁決。'
+  },
+  {
+    q: 'FOB 價 USD122.40/PC，每箱2PC、毛重16KGS、體積4CBM、海運費USD100/TON或USD106/CBM，則 CFR 單價為？（1CBM=35.315ft³）',
+    opts: ['(A) USD124.40', '(B) USD126.40', '(C) USD128.40', '(D) USD129.11'],
+    ans: 2,
+    explain: '體積費：USD106÷35.315×4=USD12（重量費USD1.6），取較高USD12。每PC運費=USD12÷2=USD6。CFR = USD122.40+USD6 = USD128.40。'
+  },
+  {
+    q: '「due to rising raw material costs, we find it necessary to _____ our prices」，空格填入？',
+    opts: ['(A) rise', '(B) raise', '(C) increase up', '(D) elevate up'],
+    ans: 1,
+    explain: 'raise是及物動詞，可以接受詞（raise our prices = 調漲我們的價格）。rise是不及物動詞，不能接受詞。'
+  },
+  {
+    q: '附件信用狀中，提單(B/L)的裝船人(Shipper)欄空格(6)應填入哪個公司？',
+    opts: ['(A) BRIGHT LIMITED', '(B) RICH TRADING COMPANY', '(C) STRONG CO., LTD.', '(D) WHA LINES LTD.'],
+    ans: 2,
+    explain: 'L/C的46A條款明確指定：以STRONG CO., LTD.作為B/L的Shipper（裝船人）。雖然RICH TRADING COMPANY是受益人，但L/C有特別指定裝船人名稱。'
+  }
+];
+
+let answered = [], correct = 0;
+
+function startQuiz() {
+  answered = new Array(quizData.length).fill(null);
+  correct = 0;
+  document.getElementById('scoreBoard').style.display = 'none';
+  document.getElementById('quizBar').style.width = '0%';
+  document.getElementById('quizStatus').textContent = '0 / ' + quizData.length + ' 題已作答';
+  const c = document.getElementById('quizContainer');
+  c.innerHTML = quizData.map((q, qi) => `
+    <div class="quiz-card" id="qcard-${qi}">
+      <div class="quiz-q"><span>${qi+1}</span>${q.q}</div>
+      <div class="quiz-opts">${q.opts.map((o, oi) =>
+        `<button class="quiz-opt" onclick="pick(${qi},${oi})" id="o-${qi}-${oi}">${o}</button>`
+      ).join('')}</div>
+      <div class="quiz-feedback" id="fb-${qi}"></div>
+    </div>`).join('');
+}
+
+function pick(qi, oi) {
+  if (answered[qi] !== null) return;
+  answered[qi] = oi;
+  const q = quizData[qi];
+  const opts = document.querySelectorAll(`#qcard-${qi} .quiz-opt`);
+  opts.forEach(o => o.disabled = true);
+  const fb = document.getElementById(`fb-${qi}`);
+  if (oi === q.ans) {
+    correct++;
+    opts[oi].classList.add('selected-correct');
+    fb.className = 'quiz-feedback correct-fb show';
+    fb.textContent = '✅ 正確！' + q.explain;
+  } else {
+    opts[oi].classList.add('selected-wrong');
+    opts[q.ans].classList.add('reveal-correct');
+    fb.className = 'quiz-feedback wrong-fb show';
+    fb.textContent = '❌ 答錯了。正確答案是' + q.opts[q.ans] + '。' + q.explain;
+  }
+  const done = answered.filter(a => a !== null).length;
+  document.getElementById('quizBar').style.width = (done/quizData.length*100) + '%';
+  document.getElementById('quizStatus').textContent = done + ' / ' + quizData.length + ' 題已作答';
+  if (done === quizData.length) setTimeout(showScore, 500);
+}
+
+function showScore() {
+  const sb = document.getElementById('scoreBoard');
+  sb.style.display = 'block';
+  document.getElementById('scoreDisplay').textContent = correct;
+  const msgs = ['💪 基礎還需加強，繼續複習！','👍 有進步空間，再看幾遍！','🎉 不錯喔！快掌握了！','⭐ 很厲害！再鞏固一下！','🏆 滿分！貿易高手！'];
+  document.getElementById('scoreMsg').textContent = msgs[Math.min(Math.floor(correct/2.5), 4)];
+  sb.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+setTimeout(revealCards, 200);
+</script>
+</body>
+</html>
